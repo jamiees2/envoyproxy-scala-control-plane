@@ -1,8 +1,9 @@
 import scala.sys.process._
 import scalapb.compiler.Version.scalapbVersion
 
+val envoyVersion = "0.1.15"
 ThisBuild / organization := "com.github.envoy-scala.control-plane"
-ThisBuild / version := "0.1.15"
+ThisBuild / version := s"0.1.17"
 // scalaVersion := "2.11.12"
 crossScalaVersions := Seq("2.11.12", "2.12.8")
 name := "api"
@@ -27,5 +28,5 @@ mappings in (Compile, packageSrc) ++= {
 
 lazy val fetchSources = taskKey[Unit]("Downloads the sources for the build")
 fetchSources := {
-  s"./fetch-sources.sh ${(version in ThisBuild).value}" !
+  s"./fetch-sources.sh $envoyVersion" !
 }
