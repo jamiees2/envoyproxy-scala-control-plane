@@ -2,7 +2,7 @@ import scala.sys.process._
 import scalapb.compiler.Version.scalapbVersion
 
 ThisBuild / organization := "com.github.envoy-scala.control-plane"
-ThisBuild / version := s"0.1.20"
+ThisBuild / version := s"0.1.21"
 crossScalaVersions := Seq("2.11.12", "2.12.8")
 name := "api"
 
