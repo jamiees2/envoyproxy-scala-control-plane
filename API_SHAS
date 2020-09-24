@@ -1,7 +1,7 @@
 # Update the versions here and run update-api.sh
 
 # envoy (source: SHA from https://github.com/envoyproxy/envoy)
-ENVOY_SHA="130c7c4e271fe306ae4dd747daa5f09ff31aef79" # Jul 7, 2020
+ENVOY_SHA="50ef0945fa2c5da4bff7627c3abf41fdd3b7cffd" # Jul 7, 2020
 
 # dependencies (source: https://github.com/envoyproxy/envoy/blob/38fe5e1ec115c0b2e83921211c2646f160a91681/api/bazel/repository_locations.bzl)
 GOOGLEAPIS_SHA="82944da21578a53b74e547774cf62ed31a05b841"  # Dec 2, 2019
