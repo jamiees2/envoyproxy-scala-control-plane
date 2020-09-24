@@ -2,7 +2,7 @@ import scala.sys.process._
 import scalapb.compiler.Version.scalapbVersion
 
 ThisBuild / organization := "com.github.envoy-scala.control-plane"
-ThisBuild / version := s"0.1.21"
+ThisBuild / version := s"0.1.22"
 crossScalaVersions := Seq("2.11.12", "2.12.8")
 name := "api"
 
@@ -24,7 +24,12 @@ mappings in (Compile, packageSrc) ++= {
   files.map { f => (f, f.relativeTo(base).get.getPath) }
 }
 
-lazy val fetchSources = taskKey[Unit]("Downloads the sources for the build")
+lazy val fetchSources = taskKey[Unit]("Downloads the sources for the build (from the envoyproxy-java-control-plane repo)")
 fetchSources := {
   s"./fetch-sources.sh" !
+}
+
+lazy val updateApi = taskKey[Unit]("Downloads the API sources (from the envoy repo)")
+updateApi := {
+  s"./update-api.sh" !
 }

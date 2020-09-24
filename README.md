@@ -5,8 +5,12 @@ The Envoy proxy controlplane APIs are not cross-compiled to Scala and are only a
 Commands for generating scalapb definitions
 Assuming you have bintray credentials.
 ```
-sbt fetchSources
-sbt +publish
+sbt -mem 4096 +publish
 ```
 
 Currently publishes for scala 2.11 and 2.12.
+
+To update the API, update the SHAs in API_SHAS, and then run
+```
+sbt updateApi
+```
