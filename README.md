@@ -3,9 +3,11 @@
 The Envoy proxy controlplane APIs are not cross-compiled to Scala and are only available as Java. This project aims to fix that by regularly compiling a scala version as well.
 
 Commands for generating scalapb definitions
-Assuming you have bintray credentials.
+
+Assuming you have sonatype credentials.
 ```
-sbt -mem 4096 +publish
+sbt -mem 4096 +publishSigned
+sbt sonatypeBundleRelease
 ```
 
 Currently publishes for scala 2.11 and 2.12.

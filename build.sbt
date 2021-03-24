@@ -1,10 +1,13 @@
 import scala.sys.process._
 import scalapb.compiler.Version.scalapbVersion
 
-ThisBuild / organization := "com.github.envoy-scala.control-plane"
+ThisBuild / organization := "io.github.jamiees2"
 ThisBuild / version := s"1.15.0"
-crossScalaVersions := Seq("2.11.12", "2.12.8")
-name := "api"
+
+ThisBuild / description := "ScalaPB generated bindings for Envoy"
+
+crossScalaVersions := Seq("2.12.11")
+name := "envoy-scala-control-plane"
 
 PB.targets in Compile := Seq(
   scalapb.gen(flatPackage=true) -> (sourceManaged in Compile).value
@@ -15,7 +18,7 @@ libraryDependencies ++= Seq(
   // For finding google/protobuf/descriptor.proto
   "com.thesamet.scalapb" %% "scalapb-runtime" % scalapbVersion % "protobuf",
   "com.thesamet.scalapb" %% "scalapb-runtime-grpc" % scalapbVersion,
-  "com.thesamet.scalapb" %% "scalapb-json4s" % "0.7.0"
+  "com.thesamet.scalapb" %% "scalapb-json4s" % "0.10.3"
 )
 
 mappings in (Compile, packageSrc) ++= {
@@ -33,3 +36,5 @@ lazy val updateApi = taskKey[Unit]("Downloads the API sources (from the envoy re
 updateApi := {
   s"./update-api.sh" !
 }
+
+publishTo := sonatypePublishToBundle.value
