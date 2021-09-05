@@ -2,15 +2,15 @@ import scala.sys.process._
 import scalapb.compiler.Version.scalapbVersion
 
 ThisBuild / organization := "io.github.jamiees2"
-ThisBuild / version := s"1.15.0"
+ThisBuild / version := s"1.17.0"
 
 ThisBuild / description := "ScalaPB generated bindings for Envoy"
 
-crossScalaVersions := Seq("2.12.11")
+crossScalaVersions := Seq("2.12.14", "2.13.6")
 name := "envoy-scala-control-plane"
 
-PB.targets in Compile := Seq(
-  scalapb.gen(flatPackage=true) -> (sourceManaged in Compile).value
+Compile / PB.targets := Seq(
+  scalapb.gen(flatPackage=true) -> (Compile / sourceManaged).value
 )
 
 libraryDependencies ++= Seq(
@@ -18,12 +18,12 @@ libraryDependencies ++= Seq(
   // For finding google/protobuf/descriptor.proto
   "com.thesamet.scalapb" %% "scalapb-runtime" % scalapbVersion % "protobuf",
   "com.thesamet.scalapb" %% "scalapb-runtime-grpc" % scalapbVersion,
-  "com.thesamet.scalapb" %% "scalapb-json4s" % "0.10.3"
+  "com.thesamet.scalapb" %% "scalapb-json4s" % "0.11.1"
 )
 
-mappings in (Compile, packageSrc) ++= {
-  val base  = (sourceManaged  in Compile).value
-  val files = (managedSources in Compile).value
+Compile / packageSrc / mappings ++= {
+  val base  = (Compile / sourceManaged).value
+  val files = (Compile / managedSources).value
   files.map { f => (f, f.relativeTo(base).get.getPath) }
 }
 

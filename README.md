@@ -10,7 +10,7 @@ sbt -mem 4096 +publishSigned
 sbt sonatypeBundleRelease
 ```
 
-Currently publishes for scala 2.11 and 2.12.
+Currently publishes for scala 2.12 and 2.13.
 
 To update the API, update the SHAs in API_SHAS, and then run
 ```
