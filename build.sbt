@@ -2,7 +2,7 @@ import scala.sys.process._
 import scalapb.compiler.Version.scalapbVersion
 
 ThisBuild / organization := "io.github.jamiees2"
-ThisBuild / version := s"1.17.0"
+ThisBuild / version := s"1.20.1"
 
 ThisBuild / description := "ScalaPB generated bindings for Envoy"
 
@@ -25,11 +25,6 @@ Compile / packageSrc / mappings ++= {
   val base  = (Compile / sourceManaged).value
   val files = (Compile / managedSources).value
   files.map { f => (f, f.relativeTo(base).get.getPath) }
-}
-
-lazy val fetchSources = taskKey[Unit]("Downloads the sources for the build (from the envoyproxy-java-control-plane repo)")
-fetchSources := {
-  s"./fetch-sources.sh" !
 }
 
 lazy val updateApi = taskKey[Unit]("Downloads the API sources (from the envoy repo)")
