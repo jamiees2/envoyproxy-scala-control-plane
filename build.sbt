@@ -2,11 +2,11 @@ import scala.sys.process._
 import scalapb.compiler.Version.scalapbVersion
 
 ThisBuild / organization := "io.github.jamiees2"
-ThisBuild / version := s"1.20.1"
+ThisBuild / version := s"1.22.2.1"
 
 ThisBuild / description := "ScalaPB generated bindings for Envoy"
 
-crossScalaVersions := Seq("2.12.14", "2.13.6")
+crossScalaVersions := Seq("2.12.16", "2.13.8")
 name := "envoy-scala-control-plane"
 
 Compile / PB.targets := Seq(
