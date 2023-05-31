@@ -2,12 +2,15 @@ import scala.sys.process._
 import scalapb.compiler.Version.scalapbVersion
 
 ThisBuild / organization := "io.github.jamiees2"
-ThisBuild / version := s"1.22.2.1"
+ThisBuild / version := s"1.23.0-dev-f04150"
 
 ThisBuild / description := "ScalaPB generated bindings for Envoy"
 
 crossScalaVersions := Seq("2.12.16", "2.13.8")
 name := "envoy-scala-control-plane"
+
+PB.protocVersion := "3.15.0"
+Compile / PB.protocOptions := Seq("--experimental_allow_proto3_optional")
 
 Compile / PB.targets := Seq(
   scalapb.gen(flatPackage=true) -> (Compile / sourceManaged).value
