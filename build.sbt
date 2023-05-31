@@ -2,7 +2,7 @@ import scala.sys.process._
 import scalapb.compiler.Version.scalapbVersion
 
 ThisBuild / organization := "io.github.jamiees2"
-ThisBuild / version := s"1.23.0-dev-f04150"
+ThisBuild / version := s"1.23.0-dev-f04150-1"
 
 ThisBuild / description := "ScalaPB generated bindings for Envoy"
 

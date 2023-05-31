@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+import "scalapb/scalapb.proto";
+
+package google.rpc;
+
+option (scalapb.options) = {
+  scope: PACKAGE
+  package_name: "envoy.com.google.rpc"
+};
